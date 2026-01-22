@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Heirs E-Invoicing Admin Dashboard
+A comprehensive admin portal for managing clients and invoices in the Heirs E-Invoicing system. Built with Next.js and Tailwind CSS.
+📋 Overview
+This project is a design-only implementation of an admin dashboard that provides complete client management capabilities including onboarding, viewing, editing, and monitoring client activities.
+✨ Features
+Authentication
 
-## Getting Started
+Login page with form validation
+Forgot password flow with email confirmation
+Clean, modern UI design
 
-First, run the development server:
+Dashboard
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Real-time statistics cards (Total Clients, Active Clients, Pending Invoices, Revenue)
+Recent activity feed
+Quick action cards for common tasks
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Client Management
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Client List: Comprehensive table view with filters and search
+Client Details: Full client information display
+Client Edit: Update client information
+Client Onboarding: Add new clients to the system
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Settings
 
-## Learn More
+Profile management
+Notification preferences with toggle switches
+Security settings
 
-To learn more about Next.js, take a look at the following resources:
+🛠️ Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Framework: Next.js 15 (App Router)
+Styling: Tailwind CSS
+Language: JavaScript (JSX)
+Icons: Heroicons (inline SVG)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+📁 Project Structure
+src/
+├── app/
+│   ├── (auth)/              # Authentication pages
+│   │   ├── login/
+│   │   └── forgot-password/
+│   ├── (dashboard)/         # Protected dashboard pages
+│   │   ├── dashboard/
+│   │   ├── clients/
+│   │   │   ├── [id]/        # Dynamic client details
+│   │   │   ├── edit/[id]/   # Dynamic client edit
+│   │   │   └── onboard/
+│   │   └── settings/
+│   └── layout.jsx
+├── components/              # Reusable components
+│   ├── Sidebar.jsx
+│   ├── Header.jsx
+│   └── StatsCard.jsx
+└── data/
+    └── mockData.js         # Mock client data
+🚀 Getting Started
+Prerequisites
 
-## Deploy on Vercel
+Node.js 18+ installed
+npm or yarn package manager
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Installation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Clone the repository:
+
+bashgit clone https://github.com/Codegoddexx/einvoicing-admin-dashboard.git
+cd einvoicing-admin-dashboard
+
+Install dependencies:
+
+bashnpm install
+
+Run the development server:
+
+bashnpm run dev
+
+Open http://localhost:3000 in your browser
+
+🔐 Authentication Note
+This is a design-only implementation. Login accepts any email/password combination and redirects to the dashboard. No backend authentication is implemented.
+📊 Mock Data
+All client data, statistics, and activities are sourced from src/data/mockData.js. This allows for quick testing and demonstration without a backend API.
+🎨 Design System
+
+Primary Color: Indigo (#4F46E5)
+Typography: System fonts with Geist Sans fallback
+Spacing: Consistent Tailwind spacing scale
+Components: Clean, modern design following current web standards
+
+📝 Pages
+RouteDescription/Redirects to login/loginUser authentication/forgot-passwordPassword recovery/dashboardMain dashboard with stats/clientsClient list with filters/clients/[id]Individual client details/clients/edit/[id]Edit client information/clients/onboardOnboard new client/settingsUser settings and preferences
+🚧 Future Enhancements
+
+Real authentication with JWT
+Backend API integration
+Real-time data updates
+Invoice generation functionality
+Payment tracking
+Advanced reporting and analytics
+
+👤 Author
+Precious Adachi
+Email: Precious.Iwuala@heirstechnologies.com
+📄 License
+This project is part of a technical assessment for Heirs Technologies.
+
+Built with ❤️ using Next.js and Tailwind CSS
