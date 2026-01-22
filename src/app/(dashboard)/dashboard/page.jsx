@@ -169,9 +169,13 @@ export default function DashboardPage() {
 
           {/* Profile Card */}
           <div className="bg-white rounded-2xl p-6 border border-gray-100 text-center">
-            <div className="w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <span className="text-white text-2xl font-bold">👤</span>
-            </div>
+          <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden">
+  <img
+    src="/avatars/Avatardp.png"
+    alt="Charles Robbie"
+    className="w-full h-full object-cover"
+  />
+</div>
             <h3 className="text-xl font-bold text-gray-800 mb-1">Charles Robbie</h3>
             <p className="text-sm text-gray-500 mb-6">@ New York, USA</p>
             <div className="grid grid-cols-3 gap-4 mb-4">
