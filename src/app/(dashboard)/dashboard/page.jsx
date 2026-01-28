@@ -18,11 +18,6 @@ export default function DashboardPage() {
 
         {/* Search Bar */}
         <div className="relative w-[341px]">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-full h-[46px] px-4 pl-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-          />
           <svg
             className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2"
             fill="none"
@@ -36,6 +31,14 @@ export default function DashboardPage() {
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
+          <span className="text-gray-600 text-sm font-medium absolute left-12 top-1/2 transform -translate-y-1/2">
+            Search
+          </span>
+          <input
+            type="text"
+            placeholder=""
+            className="w-full h-[46px] px-4 pl-24 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          />
         </div>
       </div>
 
