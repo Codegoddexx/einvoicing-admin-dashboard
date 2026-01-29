@@ -194,59 +194,16 @@ export default function DashboardPage() {
 
                 {/* Line Chart */}
                 <div className="h-20 relative">
-                  <svg className="w-full h-full" viewBox="0 0 400 100" preserveAspectRatio="none">
-                    <defs>
-                      <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.3" />
-                        <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0" />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      d="M 0 80 Q 50 60, 100 70 T 200 50 T 300 40 T 400 30"
-                      fill="none"
-                      stroke="#8B5CF6"
-                      strokeWidth="3"
-                    />
-                    <path
-                      d="M 0 80 Q 50 60, 100 70 T 200 50 T 300 40 T 400 30 L 400 100 L 0 100 Z"
-                      fill="url(#chartGradient)"
-                    />
-                  </svg>
+                <img
+                src="/avatars/SecondChart.png"
+                alt="Chart"
+                className="absolute top-10 left-0 w-full object-contain"
+              />
                 </div>
               </div>
             </div>
 
-            {/* Bar Chart */}
-            <div className="flex-1 flex items-end justify-between gap-2 px-2">
-              <div className="flex flex-col items-center flex-1">
-                <div className="w-full bg-indigo-100 rounded-t" style={{ height: '20%' }}></div>
-                <span className="text-xs text-gray-500 mt-2">Jan</span>
-              </div>
-              <div className="flex flex-col items-center flex-1">
-                <div className="w-full bg-indigo-100 rounded-t" style={{ height: '35%' }}></div>
-                <span className="text-xs text-gray-500 mt-2">Feb</span>
-              </div>
-              <div className="flex flex-col items-center flex-1">
-                <div className="w-full bg-indigo-100 rounded-t" style={{ height: '25%' }}></div>
-                <span className="text-xs text-gray-500 mt-2">Mar</span>
-              </div>
-              <div className="flex flex-col items-center flex-1">
-                <div className="w-full bg-indigo-100 rounded-t" style={{ height: '45%' }}></div>
-                <span className="text-xs text-gray-500 mt-2">Apr</span>
-              </div>
-              <div className="flex flex-col items-center flex-1">
-                <div className="w-full bg-indigo-600 rounded-t" style={{ height: '100%' }}></div>
-                <span className="text-xs text-gray-500 mt-2">May</span>
-              </div>
-              <div className="flex flex-col items-center flex-1">
-                <div className="w-full bg-indigo-100 rounded-t" style={{ height: '40%' }}></div>
-                <span className="text-xs text-gray-500 mt-2">Jun</span>
-              </div>
-              <div className="flex flex-col items-center flex-1">
-                <div className="w-full bg-indigo-100 rounded-t" style={{ height: '50%' }}></div>
-                <span className="text-xs text-gray-500 mt-2">Jul</span>
-              </div>
-            </div>
+         
           </div>
 
           {/* Card 2 - Profile (350px) */}
