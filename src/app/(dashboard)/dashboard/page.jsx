@@ -105,19 +105,43 @@ export default function DashboardPage() {
               <p className="text-xs text-gray-500 mb-1">This month earnings</p>
               <div className=" flex items-start justify-between space-x-2">
                 <p className="text-2xl font-bold text-gray-800">$682.5</p>
-                <span className="text-green-500 text-sm font-medium mb-1">+2.45%</span>
+                <div>
+                  <img
+                    src="/avatars/ChartButton.png"
+                    alt="Graph illustration"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </div>
               <p className="text-xs text-green-500 mt-1">● On track</p>
             </div>
 
-            {/* Bottom Section - Graph (takes remaining space) */}
-            <div className="flex-1">
-              <img className="w-full h-full"
+            {/* Bottom Section - Graph Area */}
+            <div className="relative flex-1 w-full">
+
+              <img
+                src="/avatars/HighLine.png"
+                alt="High Line"
+                className="absolute top-5 left-0 w-full object-contain"
+              />
+
+              {/* Main Chart */}
+              <img
                 src="/avatars/ChartGraph.png"
-                alt="Graph illustration"
+                alt="Chart"
                 className="w-full h-full object-contain"
               />
+
+              {/* Months */}
+              <img
+                src="/avatars/Months.png"
+                alt="Months"
+                className="absolute bottom-0 left-0 w-full object-contain"
+              />
+
             </div>
+
+
           </div>
 
           {/* Right Card - 350px (Security) */}
