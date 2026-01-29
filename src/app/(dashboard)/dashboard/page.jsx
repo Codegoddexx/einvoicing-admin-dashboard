@@ -96,50 +96,58 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* ROW 2: Two Large Cards */}
+        {/* ROW 2: Two Cards */}
         <div className="flex gap-[20px] max-w-[1150px] h-[345px] mb-[20px]">
           {/* Left Card - 720px */}
-          <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[720px] h-[345px]">
-            <div className="flex items-start justify-between mb-6">
-              <div className="max-w-xs">
-                <h2 className="w-[255px] h-[82px] text-[34px] font-bold text-gray-800 leading-[42px] tracking-[-0.02em] mb-4" style={{ fontFamily: 'DM Sans' }}>
-                  Reach financial goals faster
-                </h2>
-                <p className="w-[255px] h-[103px] text-[16px] font-medium text-gray-500 leading-[28px] tracking-[-0.02em]" style={{ fontFamily: 'DM Sans' }}>
-                  Use your Venus debit card in the world with no hidden fees. Hold, transfer and spend money.
-                </p>
-                <button className="w-[168px] h-[46px] bg-indigo-600 text-white rounded-xl font-medium text-sm hover:bg-indigo-700 transition-colors" style={{ fontFamily: 'DM Sans' }}>
-                  Learn more
-                </button>
+          <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[720px] h-[345px] flex flex-col">
+            {/* Top Section - Earnings */}
+            <div className="mb-4">
+              <p className="text-xs text-gray-500 mb-1">This month earnings</p>
+              <div className=" flex items-start justify-between space-x-2">
+                <p className="text-2xl font-bold text-gray-800">$682.5</p>
+                <span className="text-green-500 text-sm font-medium mb-1">+2.45%</span>
               </div>
-              <div className="w-[324.1] h-[285.4] overflow-hidden rounded-xl">
-                <img
-                  src="/avatars/IllustrationCard.png"
-                  alt="Card illustration"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <p className="text-xs text-green-500 mt-1">● On track</p>
             </div>
 
+            {/* Bottom Section - Graph (takes remaining space) */}
+            <div className="flex-1">
+              <img className="w-full h-full"
+                src="/avatars/ChartGraph.png"
+                alt="Graph illustration"
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
 
           {/* Right Card - 350px (Security) */}
-          <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[350px] h-[345px] flex flex-col items-center justify-center text-center">
-            <div className="w-20 h-20 bg-indigo-50 rounded-full flex items-center justify-center mb-4">
-              <svg className="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
-              </svg>
+          {/* ............. */}
+          <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[350px] h-[345px] text-center">
+            <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden">
+              <img
+                src="/avatars/Avatardp.png"
+                alt="Charles Robbie"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <h3 className="text-lg font-bold text-gray-800 mb-2">
-              Control card security in-app with a tap
-            </h3>
-            <p className="text-sm text-gray-500 mb-6">
-              Discover our cards benefits with one tap.
-            </p>
-            <button className="w-full bg-indigo-600 text-white py-2.5 rounded-xl font-medium text-sm hover:bg-indigo-700 transition-colors">
-              Cards
-            </button>
+            <h3 className="text-xl font-bold text-gray-800 mb-1">Charles Robbie</h3>
+            <p className="text-sm text-gray-500 mb-6">@ New York, USA</p>
+            <div className="grid grid-cols-3 gap-4 mb-4">
+              <div>
+                <p className="text-2xl font-bold text-gray-800">28</p>
+                <p className="text-xs text-gray-500">Projects</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-800">643</p>
+                <p className="text-xs text-gray-500">Followers</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-800">76</p>
+                <p className="text-xs text-gray-500">Following</p>
+              </div>
+            </div>
           </div>
+
         </div>
 
         {/* ROW 3: Three Equal Cards */}
@@ -149,7 +157,7 @@ export default function DashboardPage() {
           <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[350px] h-[345px] flex flex-col">
             <div className="mb-4">
               <p className="text-xs text-gray-500 mb-1">This month earnings</p>
-              <div className="flex items-end space-x-2">
+              <div className=" flex items-start justify-between space-x-2">
                 <p className="text-2xl font-bold text-gray-800">$682.5</p>
                 <span className="text-green-500 text-sm font-medium mb-1">+2.45%</span>
               </div>
@@ -218,30 +226,21 @@ export default function DashboardPage() {
           </div>
 
           {/* Card 2 - Profile (350px) */}
-          <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[350px] h-[345px] text-center">
-            <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden">
-              <img
-                src="/avatars/Avatardp.png"
-                alt="Charles Robbie"
-                className="w-full h-full object-cover"
-              />
+          <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[350px] h-[345px] flex flex-col items-center justify-center text-center">
+            <div className="w-20 h-20 bg-indigo-50 rounded-full flex items-center justify-center mb-4">
+              <svg className="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+              </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-800 mb-1">Charles Robbie</h3>
-            <p className="text-sm text-gray-500 mb-6">@ New York, USA</p>
-            <div className="grid grid-cols-3 gap-4 mb-4">
-              <div>
-                <p className="text-2xl font-bold text-gray-800">28</p>
-                <p className="text-xs text-gray-500">Projects</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-gray-800">643</p>
-                <p className="text-xs text-gray-500">Followers</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-gray-800">76</p>
-                <p className="text-xs text-gray-500">Following</p>
-              </div>
-            </div>
+            <h3 className="text-lg font-bold text-gray-800 mb-2">
+              Control card security in-app with a tap
+            </h3>
+            <p className="text-sm text-gray-500 mb-6">
+              Discover our cards benefits with one tap.
+            </p>
+            <button className="w-full bg-indigo-600 text-white py-2.5 rounded-xl font-medium text-sm hover:bg-indigo-700 transition-colors">
+              Cards
+            </button>
           </div>
 
           {/* Card 3 - Transfers (350px) */}
