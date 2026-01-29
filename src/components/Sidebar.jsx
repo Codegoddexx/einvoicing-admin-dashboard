@@ -78,15 +78,11 @@ export default function Sidebar() {
       {/* Logo */}
       <div className="h-20 flex items-center px-6">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center">
-            <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-            </svg>
-          </div>
-          <div>
-            <div className="font-bold text-gray-800 text-lg">VENUS</div>
-            <div className="text-xs text-gray-500">DASHBOARD</div>
-          </div>
+            <img
+                  src="/avatars/Logofull.png"
+                  alt="Logofull"
+                  className="w-full h-full object-cover"
+                />
         </div>
       </div>
 
