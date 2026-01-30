@@ -51,11 +51,32 @@ export default function DashboardPage() {
             <p className="text-xs text-gray-500 mb-1">This month earnings</p>
             <div className="flex items-end justify-between">
               <h2 className="text-2xl font-bold text-gray-800">$682.5</h2>
-              <div className="flex space-x-1 mb-1">
-                <div className="w-1 h-6 bg-indigo-400 rounded"></div>
-                <div className="w-1 h-8 bg-indigo-500 rounded"></div>
-                <div className="w-1 h-4 bg-indigo-300 rounded"></div>
-                <div className="w-1 h-10 bg-indigo-600 rounded"></div>
+              <div className="flex items-end space-x-0.5 h-10 pb-2">
+                <img
+                  src="/avatars/Barthree.png"
+                  alt="Bar"
+                  className="h-[48.33px] w-[10.57]"
+                />
+                <img
+                  src="/avatars/Barfour.png"
+                  alt="Bar"
+                  className="h-[48.33px] w-[10.57]"
+                />
+                <img
+                  src="/avatars/Barfive.png"
+                  alt="Bar"
+                  className="h-[48.33px] w-[10.57]"
+                />
+                <img
+                  src="/avatars/Barsix.png"
+                  alt="Bar"
+                  className="h-[48.33px] w-[10.57]"
+                />
+                <img
+                  src="/avatars/Barseven.png"
+                  alt="Bar"
+                  className="h-[48.33px] w-[10.57]"
+                />
               </div>
             </div>
           </div>
@@ -194,16 +215,16 @@ export default function DashboardPage() {
 
                 {/* Line Chart */}
                 <div className="h-20 relative">
-                <img
-                src="/avatars/SecondChart.png"
-                alt="Chart"
-                className="absolute top-10 left-0 w-full object-contain"
-              />
+                  <img
+                    src="/avatars/SecondChart.png"
+                    alt="Chart"
+                    className="absolute top-10 left-0 w-full object-contain"
+                  />
                 </div>
               </div>
             </div>
 
-         
+
           </div>
 
           {/* Card 2 - Profile (350px) */}
