@@ -81,17 +81,66 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          {/* Card 2 - Empty with icon */}
-          <div className="bg-white rounded-[20px] p-5 border border-gray-100 flex items-center justify-center w-[257px] h-[97px]">
-            <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
+          {/* Card 2 - New Clients */}
+          <div className="bg-white rounded-[20px] px-5 py-3 border border-gray-100 w-[257px] h-[97px] flex items-center justify-between gap-5">
+
+            {/* Icon Circle */}
+            <div className="relative w-[44px] h-[44px] flex-shrink-0">
+              <img
+                src="/avatars/Shadow.png"
+                alt="Circle"
+                className="w-full h-full"
+              />
+              {/* Center Icon */}
+              <img
+                src="/avatars/Icondummy.png"
+                alt="Icon"
+                className="absolute inset-0 m-auto w-[20px] h-[20px]"
+              />
+
+            </div>
+
+
+            {/* Text */}
+            <div className="flex flex-col justify-center flex-1 ml-3">
+
+              <p className="text-xs text-gray-500 leading-none">
+                New clients
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-800 leading-tight">
+                321
+              </h2>
+
+            </div>
+
+            {/* Curve */}
+            <div className="w-[90px] h-[48px] flex-shrink-0">
+
+              <img
+                src="/avatars/Curvegraph.png"
+                alt="Graph"
+                className="w-full h-full object-contain"
+              />
+
+            </div>
+
           </div>
 
-          {/* Card 3 */}
-          <div className="bg-white rounded-[20px] p-5 border border-gray-100 w-[257px] h-[97px]">
-            <p className="text-xs text-gray-500 mb-1">This month earnings</p>
-            <h2 className="text-2xl font-bold text-gray-800">$350.40</h2>
+
+          {/* Card 3 */}           
+            <div className="flex bg-white rounded-[20px] p-5 border border-gray-100 w-[257px] h-[97px] gap-5">
+               <div className="rounded">
+              <img
+                src="/avatars/Icon3.png"
+                alt="Graph"
+                className="w-full h-full object-contain"
+              />
+            </div>
+              <div>
+                <p className="text-xs text-gray-500 mb-1">Earnings</p>
+                <h2 className="text-2xl font-bold text-gray-800">$350.40</h2>
+              </div>
           </div>
 
           {/* Card 4 - New Clients + Activity */}
