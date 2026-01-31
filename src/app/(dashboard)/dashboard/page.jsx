@@ -82,65 +82,52 @@ export default function DashboardPage() {
           </div>
 
           {/* Card 2 - New Clients */}
-          <div className="bg-white rounded-[20px] px-5 py-3 border border-gray-100 w-[257px] h-[97px] flex items-center justify-between gap-5">
+          <div className="bg-white rounded-[20px] px-5 py-3 border border-gray-100 w-[257px] h-[97px] flex items-center gap-3">
 
             {/* Icon Circle */}
-            <div className="relative w-[44px] h-[44px] flex-shrink-0">
-              <img
-                src="/avatars/Shadow.png"
-                alt="Circle"
-                className="w-full h-full"
-              />
+            <div className="relative w-15 h-15 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
               {/* Center Icon */}
               <img
-                src="/avatars/Icondummy.png"
+                src="/Icondummy.png"
                 alt="Icon"
-                className="absolute inset-0 m-auto w-[20px] h-[20px]"
+                className="w-5 h-5 object-contain"
               />
-
             </div>
 
-
             {/* Text */}
-            <div className="flex flex-col justify-center flex-1 ml-3">
-
-              <p className="text-xs text-gray-500 leading-none">
+            <div className="flex flex-col justify-center min-w-0">
+              <p className="text-xs text-gray-500 whitespace-nowrap mb-1">
                 New clients
               </p>
-
               <h2 className="text-2xl font-bold text-gray-800 leading-tight">
                 321
               </h2>
-
             </div>
 
             {/* Curve */}
-            <div className="w-[90px] h-[48px] flex-shrink-0">
-
+            <div className="w-[90px] h-[48px] flex-shrink-0 ml-auto">
               <img
                 src="/avatars/Curvegraph.png"
                 alt="Graph"
                 className="w-full h-full object-contain"
               />
-
             </div>
-
           </div>
 
 
-          {/* Card 3 */}           
-            <div className="flex bg-white rounded-[20px] p-5 border border-gray-100 w-[257px] h-[97px] gap-5">
-               <div className="rounded">
+          {/* Card 3 */}
+          <div className="flex bg-white rounded-[20px] p-5 border border-gray-100 w-[257px] h-[97px] gap-5">
+            <div className="w-15 h-15 bg-indigo-50 rounded-full flex items-center justify-center mb-4">
               <img
                 src="/avatars/Icon3.png"
                 alt="Graph"
                 className="w-full h-full object-contain"
               />
             </div>
-              <div>
-                <p className="text-xs text-gray-500 mb-1">Earnings</p>
-                <h2 className="text-2xl font-bold text-gray-800">$350.40</h2>
-              </div>
+            <div>
+              <p className="text-xs text-gray-500 mb-1">Earnings</p>
+              <h2 className="text-2xl font-bold text-gray-800">$350.40</h2>
+            </div>
           </div>
 
           {/* Card 4 - New Clients + Activity */}
@@ -208,10 +195,7 @@ export default function DashboardPage() {
                 alt="Months"
                 className="absolute bottom-0 left-0 w-full object-contain"
               />
-
             </div>
-
-
           </div>
 
           {/* Right Card - 350px (Security) */}
