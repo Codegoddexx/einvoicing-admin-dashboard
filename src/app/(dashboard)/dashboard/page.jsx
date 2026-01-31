@@ -85,7 +85,7 @@ export default function DashboardPage() {
           <div className="bg-white rounded-[20px] px-5 py-3 border border-gray-100 w-[257px] h-[97px] flex items-center gap-3">
 
             {/* Icon Circle */}
-            <div className="relative w-15 h-15 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+            <div className="relative w-15 h-15 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
               {/* Center Icon */}
               <img
                 src="/Icondummy.png"
@@ -131,11 +131,11 @@ export default function DashboardPage() {
           </div>
 
           {/* Card 4 - New Clients + Activity */}
-          <div className="bg-gradient-to-br from-indigo-600 to-blue-600 rounded-[20px] p-5 text-white w-[257px] h-[97px]">
+          <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-[20px] p-5 text-white w-[257px] h-[97px]">
             <p className="text-xs text-white-500 mb-1">Activity</p>
-            <div className="flex items-end justify-between">
+            <div className="flex justify-between">
               <h2 className="text-2xl font-bold text-white-500">$540.50</h2>              
-                 <div className="w-[90px] h-[48px] flex-shrink-0 ml-auto">
+                 <div className="w-[90px] h-[48px] flex-shrink-0">
               <img
                 src="/avatars/Chartcurve.png"
                 alt="Graph"
