@@ -49,7 +49,7 @@ export default function DashboardPage() {
           {/* Card 1 */}
           <div className="bg-white rounded-[20px] p-5 border border-gray-100 w-[257px] h-[97px]">
             <p className="text-xs text-gray-500 mb-1">This month earnings</p>
-            <div className="flex items-end justify-between">
+            <div className="flex justify-between">
               <h2 className="text-2xl font-bold text-gray-800">$682.5</h2>
               <div className="flex items-end space-x-0.5 h-10 pb-2">
                 <img
@@ -139,7 +139,7 @@ export default function DashboardPage() {
               <img
                 src="/avatars/Chartcurve.png"
                 alt="Graph"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain pb-5"
               />
             </div>
             </div>
