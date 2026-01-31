@@ -131,24 +131,17 @@ export default function DashboardPage() {
           </div>
 
           {/* Card 4 - New Clients + Activity */}
-          <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-[20px] p-5 text-white w-[257px] h-[97px]">
-            <div className="flex items-center space-x-2 mb-3">
-
-              <div>
-                <p className="text-sm opacity-90">New clients</p>
-              </div>
+          <div className="bg-gradient-to-br from-indigo-600 to-blue-600 rounded-[20px] p-5 text-white w-[257px] h-[97px]">
+            <p className="text-xs text-white-500 mb-1">Activity</p>
+            <div className="flex items-end justify-between">
+              <h2 className="text-2xl font-bold text-white-500">$540.50</h2>              
+                 <div className="w-[90px] h-[48px] flex-shrink-0 ml-auto">
+              <img
+                src="/avatars/Chartcurve.png"
+                alt="Graph"
+                className="w-full h-full object-contain"
+              />
             </div>
-            <div className="flex items-center space-x-2">
-              <p className="text-xs opacity-75">Activity</p>
-              <div className="flex-1 flex items-end space-x-1 h-6">
-                <div className="w-1 h-2 bg-white/40 rounded"></div>
-                <div className="w-1 h-4 bg-white/60 rounded"></div>
-                <div className="w-1 h-3 bg-white/50 rounded"></div>
-                <div className="w-1 h-5 bg-white/70 rounded"></div>
-                <div className="w-1 h-4 bg-white/60 rounded"></div>
-                <div className="w-1 h-6 bg-white rounded"></div>
-              </div>
-              <p className="text-xl font-bold">$540.50</p>
             </div>
           </div>
         </div>
