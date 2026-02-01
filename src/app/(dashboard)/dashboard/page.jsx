@@ -2,7 +2,7 @@
 
 export default function DashboardPage() {
   const transfers = [
-    { id: 1, name: "Public Transport", date: "22 September 2020", positive: true, avatar: "/avatars/transport.png" },
+    { id: 1, name: "Public Transport", date: "22 September 2020", positive: true, avatar: "public/avatars/directions_bus.png" },
     { id: 2, name: "Grocery Store", date: "18 September 2020", positive: false, avatar: "LS" },
     { id: 3, name: "Public Transport", date: "22 September 2020", positive: true, avatar: "JS" }
   ];
