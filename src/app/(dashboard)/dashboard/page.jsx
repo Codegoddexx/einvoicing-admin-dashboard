@@ -10,14 +10,14 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       {/* Top Header with Search */}
-      <div className="flex items-center justify-between mb-8 px-8 pt-4">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 px-4 md:px-8 pt-4">
         <div>
           <p className="text-sm mb-1">Hi Andrei,</p>
-          <h1 className="text-3xl">Welcome to Venus!</h1>
+          <h1 className="text-2xl md:text-3xl">Welcome to Venus!</h1>
         </div>
 
         {/* Search Bar */}
-        <div className="relative w-[341px]">
+        <div className="relative w-full md:w-[341px]">
           <svg
             className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2"
             fill="none"
@@ -42,12 +42,12 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <div className="px-8">
+      <div className="px-4 md:px-8">
 
         {/* ROW 1: Top Stats - 4 Cards */}
-        <div className="flex gap-[20px] max-w-[1150px] h-[97px] mb-[20px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
           {/* Card 1 */}
-          <div className="bg-white rounded-[20px] p-5 border border-gray-100 w-[257px] h-[97px]">
+          <div className="bg-white rounded-[20px] p-5 border border-gray-100 min-h-[97px]">
             <p className="text-xs mb-1">This month earnings</p>
             <div className="flex justify-between">
               <h2 className="text-2xl">$682.5</h2>
@@ -82,11 +82,9 @@ export default function DashboardPage() {
           </div>
 
           {/* Card 2 - New Clients */}
-          <div className="bg-white rounded-[20px] px-5 py-3 border border-gray-100 w-[257px] h-[97px] flex items-center gap-3">
-
+          <div className="bg-white rounded-[20px] px-5 py-3 border border-gray-100 min-h-[97px] flex items-center gap-3">
             {/* Icon Circle */}
-            <div className="relative w-15 h-15 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-              {/* Center Icon */}
+            <div className="relative w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
               <img
                 src="/Icondummy.png"
                 alt="Icon"
@@ -114,14 +112,13 @@ export default function DashboardPage() {
             </div>
           </div>
 
-
           {/* Card 3 */}
-          <div className="flex bg-white rounded-[20px] p-5 border border-gray-100 w-[257px] h-[97px] gap-5">
-            <div className="w-15 h-15 bg-indigo-50 rounded-full flex items-center justify-center mb-4">
+          <div className="flex bg-white rounded-[20px] p-5 border border-gray-100 min-h-[97px] gap-3 items-center">
+            <div className="w-10 h-10 bg-indigo-50 rounded-full flex items-center justify-center flex-shrink-0">
               <img
                 src="/avatars/Icon3.png"
                 alt="Graph"
-                className="w-full h-full object-contain"
+                className="w-6 h-6 object-contain"
               />
             </div>
             <div>
@@ -130,28 +127,26 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          {/* Card 4 - New Clients + Activity */}
-          <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-[20px] p-5 text-white w-[257px] h-[97px]">
-            <div className="flex justify-between gap-5">
-              <div>
-                <p className="text-xs text-white mb-1">Activity</p>
-                <h2 className="text-2xl text-white">$540.50</h2>
-              </div>
-              <div className="flex-shrink-0">
-                <img
-                  src="/avatars/Chartcurve.png"
-                  alt="Graph"
-                  className="w-full h-full pb-5"
-                />
-              </div>
+          {/* Card 4 - Activity */}
+          <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-[20px] p-5 text-white min-h-[97px] flex items-center justify-between">
+            <div>
+              <p className="text-xs text-white mb-1">Activity</p>
+              <h2 className="text-2xl text-white">$540.50</h2>
+            </div>
+            <div className="w-[90px] h-[48px] flex-shrink-0">
+              <img
+                src="/avatars/Chartcurve.png"
+                alt="Graph"
+                className="w-full h-full object-contain"
+              />
             </div>
           </div>
         </div>
 
         {/* ROW 2: Two Cards */}
-        <div className="flex gap-[20px] max-w-[1150px] h-[345px] mb-[20px]">
-          {/* Left Card - 720px */}
-          <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[720px] h-[345px] flex flex-col">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-6">
+          {/* Left Card - Takes 2 columns on large screens */}
+          <div className="lg:col-span-2 bg-white rounded-[20px] p-6 border border-gray-100 min-h-[345px] flex flex-col">
             {/* Top Section - Earnings */}
             <div className="mb-4">
               <p className="mb-1">This month earnings</p>
@@ -161,7 +156,7 @@ export default function DashboardPage() {
                   <img
                     src="/avatars/ChartButton.png"
                     alt="Graph illustration"
-                    className="w-full h-full object-contain"
+                    className="w-auto h-8 object-contain"
                   />
                 </div>
               </div>
@@ -170,21 +165,16 @@ export default function DashboardPage() {
 
             {/* Bottom Section - Graph Area */}
             <div className="relative flex-1 w-full">
-
               <img
                 src="/avatars/HighLine.png"
                 alt="High Line"
                 className="absolute top-5 left-0 w-full object-contain"
               />
-
-              {/* Main Chart */}
               <img
                 src="/avatars/ChartGraph.png"
                 alt="Chart"
                 className="w-full h-full object-contain"
               />
-
-              {/* Months */}
               <img
                 src="/avatars/Months.png"
                 alt="Months"
@@ -193,16 +183,16 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          {/* Right Card - 350px (Profile) */}
-          <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[350px] h-[345px] text-center">
-            <div className="w-35 h-35 rounded-full mx-auto mb-4 overflow-hidden">
+          {/* Right Card - Takes 1 column */}
+          <div className="bg-white rounded-[20px] p-6 border border-gray-100 min-h-[345px] text-center">
+            <div className="w-40 h-40 rounded-full mx-auto mb-4 overflow-hidden">
               <img
                 src="/avatars/Avatardp.png"
                 alt="Charles Robbie"
                 className="w-full h-full object-cover"
               />
             </div>
-            <h3 className="text-xl mb-1">Charles Robbie</h3>
+            <h3 className="text-2xl mb-1">Charles Robbie</h3>
             <p className="text-sm mb-6">@ New York, USA</p>
             <div className="grid grid-cols-3 gap-4 mb-4">
               <div>
@@ -219,43 +209,33 @@ export default function DashboardPage() {
               </div>
             </div>
           </div>
-
         </div>
 
         {/* ROW 3: Three Equal Cards */}
-        <div className="flex gap-[20px] max-w-[1150px] h-[345px]">
-
-          {/* Card 1 - Bar Chart (350px) */}
-          <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[350px] h-[345px] flex flex-col">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* Card 1 - Bar Chart */}
+          <div className="bg-white rounded-[20px] p-6 border border-gray-100 min-h-[345px] flex flex-col">
             <div className="mb-4">
               <p className="text-xs mb-1">This month earnings</p>
               <div className="flex items-start justify-between space-x-2">
                 <h2 className="text-2xl">$682.5</h2>
                 <span className="text-green-500 text-sm font-medium mb-1">+2.45%</span>
               </div>
-              <p className="text-xs text-green-500 mt-1">● +2.45%</p>
-              {/* Bottom Chart Section */}
-              <div className="border-t border-gray-100 pt-4">
-                <div className="flex items-center justify-between mb-2">
-
-                </div>
-
-                {/* Line Chart */}
-                <div className="h-20 relative">
-                  <img
-                    src="/avatars/SecondChart.png"
-                    alt="Chart"
-                    className="absolute top-10 left-0 w-full object-contain"
-                  />
-                </div>
-              </div>
+              <p className="text-xs text-green-500 mt-1">● On track</p>
             </div>
 
-
+            {/* Chart Section */}
+            <div className="flex-1 relative">
+              <img
+                src="/avatars/SecondChart.png"
+                alt="Chart"
+                className="absolute top-10 left-0 w-full object-contain"
+              />
+            </div>
           </div>
 
-          {/* Card 2 - Transactions (350px) */}
-          <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[350px] h-[345px]">
+          {/* Card 2 - Transactions */}
+          <div className="bg-white rounded-[20px] p-6 border border-gray-100 min-h-[345px]">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold">Your Transactions</h3>
             </div>
@@ -286,18 +266,14 @@ export default function DashboardPage() {
             </button>
           </div>
 
-          {/* Card 3 - Calendar (350px) */}
-          <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[350px] h-[345px]">
-            {/* Date Header */}
+          {/* Card 3 - Calendar */}
+          <div className="bg-white rounded-[20px] p-6 border border-gray-100 min-h-[345px]">
             <h2 className="text-3xl mb-6">27 May</h2>
 
             {/* Tasks List */}
-            <div className="space-y-5.5">
+            <div className="space-y-5">
               <div className="flex gap-3">
-                {/* Color Indicator */}
                 <div className="w-1 bg-purple-600 rounded-full flex-shrink-0" />
-
-                {/* Task Details */}
                 <div className="flex-1">
                   <h3 className="font-semibold text-base">
                     Meet w/ Simmmple
@@ -333,7 +309,6 @@ export default function DashboardPage() {
               </div>
             </div>
 
-            {/* View All Link */}
             <button className="w-full mt-4 text-indigo-600 font-medium text-sm hover:text-indigo-700 flex items-center justify-end space-x-1">
               <span>View all</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -341,7 +316,6 @@ export default function DashboardPage() {
               </svg>
             </button>
           </div>
-
         </div>
       </div>
     </div>
