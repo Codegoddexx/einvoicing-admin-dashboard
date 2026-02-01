@@ -2,9 +2,9 @@
 
 export default function DashboardPage() {
   const transfers = [
-    { id: 1, name: "Public Transport", date: "22 September 2020", positive: true, avatar: "public/avatars/directions_bus.png" },
-    { id: 2, name: "Grocery Store", date: "18 September 2020", positive: false, avatar: "LS" },
-    { id: 3, name: "Public Transport", date: "22 September 2020", positive: true, avatar: "JS" }
+    { id: 1, name: "Public Transport", date: "22 September 2020", positive: true, avatar: "/avatars/directions_bus.png" },
+    { id: 2, name: "Grocery Store", date: "18 September 2020", positive: false, avatar: "/avatars/Vector.png" },
+    { id: 3, name: "Public Transport", date: "22 September 2020", positive: true, avatar: "/avatars/Vector2.png" }
   ];
 
   return (
@@ -12,8 +12,8 @@ export default function DashboardPage() {
       {/* Top Header with Search */}
       <div className="flex items-center justify-between mb-8 px-8 pt-4">
         <div>
-          <p className="text-sm text-gray-500 mb-1">Hi Andrei,</p>
-          <h1 className="text-3xl font-bold text-gray-800">Welcome to Venus!</h1>
+          <p className="text-sm mb-1">Hi Andrei,</p>
+          <h1 className="text-3xl">Welcome to Venus!</h1>
         </div>
 
         {/* Search Bar */}
@@ -31,7 +31,7 @@ export default function DashboardPage() {
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
-          <span className="text-gray-600 text-sm font-medium absolute left-12 top-1/2 transform -translate-y-1/2">
+          <span className="text-sm font-medium absolute left-12 top-1/2 transform -translate-y-1/2">
             Search
           </span>
           <input
@@ -48,9 +48,9 @@ export default function DashboardPage() {
         <div className="flex gap-[20px] max-w-[1150px] h-[97px] mb-[20px]">
           {/* Card 1 */}
           <div className="bg-white rounded-[20px] p-5 border border-gray-100 w-[257px] h-[97px]">
-            <p className="text-xs text-gray-500 mb-1">This month earnings</p>
+            <p className="text-xs mb-1">This month earnings</p>
             <div className="flex justify-between">
-              <h2 className="text-2xl font-bold text-gray-800">$682.5</h2>
+              <h2 className="text-2xl">$682.5</h2>
               <div className="flex items-end space-x-0.5 h-10 pb-2">
                 <img
                   src="/avatars/Barthree.png"
@@ -96,10 +96,10 @@ export default function DashboardPage() {
 
             {/* Text */}
             <div className="flex flex-col justify-center min-w-0">
-              <p className="text-xs text-gray-500 whitespace-nowrap mb-1">
+              <p className="text-xs whitespace-nowrap mb-1">
                 New clients
               </p>
-              <h2 className="text-2xl font-bold text-gray-800 leading-tight">
+              <h2 className="text-2xl leading-tight">
                 321
               </h2>
             </div>
@@ -125,8 +125,8 @@ export default function DashboardPage() {
               />
             </div>
             <div>
-              <p className="text-xs text-gray-500 mb-1">Earnings</p>
-              <h2 className="text-2xl font-bold text-gray-800">$350.40</h2>
+              <p className="text-xs mb-1">Earnings</p>
+              <h2 className="text-2xl">$350.40</h2>
             </div>
           </div>
 
@@ -134,8 +134,8 @@ export default function DashboardPage() {
           <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-[20px] p-5 text-white w-[257px] h-[97px]">
             <div className="flex justify-between gap-5">
               <div>
-                <p className="text-xs text-white-500 mb-1">Activity</p>
-                <h2 className="text-2xl font-bold text-white-500">$540.50</h2>
+                <p className="text-xs text-white mb-1">Activity</p>
+                <h2 className="text-2xl text-white">$540.50</h2>
               </div>
               <div className="flex-shrink-0">
                 <img
@@ -154,9 +154,9 @@ export default function DashboardPage() {
           <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[720px] h-[345px] flex flex-col">
             {/* Top Section - Earnings */}
             <div className="mb-4">
-              <p className="text-xs text-gray-500 mb-1">This month earnings</p>
-              <div className=" flex items-start justify-between space-x-2">
-                <p className="text-2xl font-bold text-gray-800">$682.5</p>
+              <p className="mb-1">This month earnings</p>
+              <div className="flex items-start justify-between space-x-2">
+                <h1 className="text-2xl">$682.5</h1>
                 <div>
                   <img
                     src="/avatars/ChartButton.png"
@@ -193,30 +193,29 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          {/* Right Card - 350px (Security) */}
-          {/* ............. */}
+          {/* Right Card - 350px (Profile) */}
           <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[350px] h-[345px] text-center">
-            <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden">
+            <div className="w-35 h-35 rounded-full mx-auto mb-4 overflow-hidden">
               <img
                 src="/avatars/Avatardp.png"
                 alt="Charles Robbie"
                 className="w-full h-full object-cover"
               />
             </div>
-            <h3 className="text-xl font-bold text-gray-800 mb-1">Charles Robbie</h3>
-            <p className="text-sm text-gray-500 mb-6">@ New York, USA</p>
+            <h3 className="text-xl mb-1">Charles Robbie</h3>
+            <p className="text-sm mb-6">@ New York, USA</p>
             <div className="grid grid-cols-3 gap-4 mb-4">
               <div>
-                <p className="text-2xl font-bold text-gray-800">28</p>
-                <p className="text-xs text-gray-500">Projects</p>
+                <h2 className="text-2xl">28</h2>
+                <p className="text-xs">Projects</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-gray-800">643</p>
-                <p className="text-xs text-gray-500">Followers</p>
+                <h2 className="text-2xl">643</h2>
+                <p className="text-xs">Followers</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-gray-800">76</p>
-                <p className="text-xs text-gray-500">Following</p>
+                <h2 className="text-2xl">76</h2>
+                <p className="text-xs">Following</p>
               </div>
             </div>
           </div>
@@ -229,9 +228,9 @@ export default function DashboardPage() {
           {/* Card 1 - Bar Chart (350px) */}
           <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[350px] h-[345px] flex flex-col">
             <div className="mb-4">
-              <p className="text-xs text-gray-500 mb-1">This month earnings</p>
-              <div className=" flex items-start justify-between space-x-2">
-                <p className="text-2xl font-bold text-gray-800">$682.5</p>
+              <p className="text-xs mb-1">This month earnings</p>
+              <div className="flex items-start justify-between space-x-2">
+                <h2 className="text-2xl">$682.5</h2>
                 <span className="text-green-500 text-sm font-medium mb-1">+2.45%</span>
               </div>
               <p className="text-xs text-green-500 mt-1">● +2.45%</p>
@@ -255,30 +254,31 @@ export default function DashboardPage() {
 
           </div>
 
-          {/* Card 2 - Profile (350px) */}
+          {/* Card 2 - Transactions (350px) */}
           <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[350px] h-[345px]">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-semibold text-gray-800">Your Transactions</h3>
+              <h3 className="font-semibold">Your Transactions</h3>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-5">
               {transfers.map((transfer) => (
                 <div key={transfer.id} className="flex items-center justify-between py-2">
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
-                      <span className="text-xs font-medium text-gray-600">{transfer.avatar}</span>
+                      <img
+                        src={transfer.avatar}
+                        alt={transfer.name}
+                        className="w-6 h-6 object-cover"
+                      />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-gray-800">{transfer.name}</p>
-                      <p className="text-xs text-gray-500">{transfer.date}</p>
+                      <p className="font-semibold text-base">{transfer.name}</p>
+                      <p className="text-xs">{transfer.date}</p>
                     </div>
                   </div>
-                  <span className={`text-sm font-semibold ${transfer.positive ? 'text-green-600' : 'text-red-600'}`}>
-                    {transfer.amount}
-                  </span>
                 </div>
               ))}
             </div>
-            <button className="w-full mt-4 text-indigo-600 font-medium text-sm hover:text-indigo-700 flex items-center justify-center space-x-1">
+            <button className="w-full mt-4 text-indigo-600 font-medium text-sm hover:text-indigo-700 flex items-center justify-end space-x-1">
               <span>View all</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -286,39 +286,62 @@ export default function DashboardPage() {
             </button>
           </div>
 
-          {/* Card 3 - Transfers (350px) */}
+          {/* Card 3 - Calendar (350px) */}
           <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[350px] h-[345px]">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="font-semibold text-gray-800">Your Transfers</h3>
-              <svg className="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-              </svg>
-            </div>
-            <div className="space-y-3">
-              {transfers.map((transfer) => (
-                <div key={transfer.id} className="flex items-center justify-between py-2">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
-                      <span className="text-xs font-medium text-gray-600">{transfer.avatar}</span>
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-800">{transfer.name}</p>
-                      <p className="text-xs text-gray-500">{transfer.date}</p>
-                    </div>
-                  </div>
-                  <span className={`text-sm font-semibold ${transfer.positive ? 'text-green-600' : 'text-red-600'}`}>
-                    {transfer.amount}
-                  </span>
+            {/* Date Header */}
+            <h2 className="text-3xl mb-6">27 May</h2>
+
+            {/* Tasks List */}
+            <div className="space-y-5.5">
+              <div className="flex gap-3">
+                {/* Color Indicator */}
+                <div className="w-1 bg-purple-600 rounded-full flex-shrink-0" />
+
+                {/* Task Details */}
+                <div className="flex-1">
+                  <h3 className="font-semibold text-base">
+                    Meet w/ Simmmple
+                  </h3>
+                  <p className="text-gray-400 text-sm mt-1">
+                    01:00 PM - 02:00 PM
+                  </p>
                 </div>
-              ))}
+              </div>
+
+              <div className="flex gap-3">
+                <div className="w-1 bg-purple-600 rounded-full flex-shrink-0" />
+                <div className="flex-1">
+                  <h3 className="font-semibold text-base">
+                    Fitness Training
+                  </h3>
+                  <p className="text-gray-400 text-sm mt-1">
+                    02:00 PM - 03:00 PM
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <div className="w-1 bg-purple-600 rounded-full flex-shrink-0" />
+                <div className="flex-1">
+                  <h3 className="font-semibold text-base">
+                    Reading time
+                  </h3>
+                  <p className="text-gray-400 text-sm mt-1">
+                    03:00 PM - 04:00 PM
+                  </p>
+                </div>
+              </div>
             </div>
-            <button className="w-full mt-4 text-indigo-600 font-medium text-sm hover:text-indigo-700 flex items-center justify-center space-x-1">
+
+            {/* View All Link */}
+            <button className="w-full mt-4 text-indigo-600 font-medium text-sm hover:text-indigo-700 flex items-center justify-end space-x-1">
               <span>View all</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </button>
           </div>
+
         </div>
       </div>
     </div>
