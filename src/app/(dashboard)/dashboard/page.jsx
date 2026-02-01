@@ -2,9 +2,9 @@
 
 export default function DashboardPage() {
   const transfers = [
-    { id: 1, name: "From Alex Manda", date: "Today, 09:30", amount: "+$50", positive: true, avatar: "AM" },
-    { id: 2, name: "To Laura Santos", date: "Yesterday, 14:30", amount: "-$27", positive: false, avatar: "LS" },
-    { id: 3, name: "From Jaden S.", date: "Yesterday, 09:15", amount: "+$157", positive: true, avatar: "JS" }
+    { id: 1, name: "Public Transport", date: "22 September 2020", positive: true, avatar: "/avatars/transport.png" },
+    { id: 2, name: "Grocery Store", date: "18 September 2020", positive: false, avatar: "LS" },
+    { id: 3, name: "Public Transport", date: "22 September 2020", positive: true, avatar: "JS" }
   ];
 
   return (
@@ -132,16 +132,18 @@ export default function DashboardPage() {
 
           {/* Card 4 - New Clients + Activity */}
           <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-[20px] p-5 text-white w-[257px] h-[97px]">
-            <p className="text-xs text-white-500 mb-1">Activity</p>
-            <div className="flex justify-between">
-              <h2 className="text-2xl font-bold text-white-500">$540.50</h2>              
-                 <div className="w-[90px] h-[48px] flex-shrink-0">
-              <img
-                src="/avatars/Chartcurve.png"
-                alt="Graph"
-                className="w-full h-full object-contain pb-5"
-              />
-            </div>
+            <div className="flex justify-between gap-5">
+              <div>
+                <p className="text-xs text-white-500 mb-1">Activity</p>
+                <h2 className="text-2xl font-bold text-white-500">$540.50</h2>
+              </div>
+              <div className="flex-shrink-0">
+                <img
+                  src="/avatars/Chartcurve.png"
+                  alt="Graph"
+                  className="w-full h-full pb-5"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -254,20 +256,33 @@ export default function DashboardPage() {
           </div>
 
           {/* Card 2 - Profile (350px) */}
-          <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[350px] h-[345px] flex flex-col items-center justify-center text-center">
-            <div className="w-20 h-20 bg-indigo-50 rounded-full flex items-center justify-center mb-4">
-              <svg className="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
-              </svg>
+          <div className="bg-white rounded-[20px] p-6 border border-gray-100 w-[350px] h-[345px]">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-semibold text-gray-800">Your Transactions</h3>
             </div>
-            <h3 className="text-lg font-bold text-gray-800 mb-2">
-              Control card security in-app with a tap
-            </h3>
-            <p className="text-sm text-gray-500 mb-6">
-              Discover our cards benefits with one tap.
-            </p>
-            <button className="w-full bg-indigo-600 text-white py-2.5 rounded-xl font-medium text-sm hover:bg-indigo-700 transition-colors">
-              Cards
+            <div className="space-y-3">
+              {transfers.map((transfer) => (
+                <div key={transfer.id} className="flex items-center justify-between py-2">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+                      <span className="text-xs font-medium text-gray-600">{transfer.avatar}</span>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-800">{transfer.name}</p>
+                      <p className="text-xs text-gray-500">{transfer.date}</p>
+                    </div>
+                  </div>
+                  <span className={`text-sm font-semibold ${transfer.positive ? 'text-green-600' : 'text-red-600'}`}>
+                    {transfer.amount}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <button className="w-full mt-4 text-indigo-600 font-medium text-sm hover:text-indigo-700 flex items-center justify-center space-x-1">
+              <span>View all</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
             </button>
           </div>
 
