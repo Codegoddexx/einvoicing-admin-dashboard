@@ -3,119 +3,85 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export default function Sidebar() {
+export default function Sidebar({ mobile = false }) {
   const pathname = usePathname();
 
   const menuItems = [
-    {
-      name: 'Dashboard',
-      path: '/dashboard',
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-        </svg>
-      )
-    },
-    {
-      name: 'Activity',
-      path: '/activity',
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-        </svg>
-      )
-    },
-    {
-      name: 'Library',
-      path: '/library',
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-        </svg>
-      )
-    },
-    {
-      name: 'Security',
-      path: '/security',
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-      )
-    },
-    {
-      name: 'Schedules',
-      path: '/schedules',
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      )
-    },
-    {
-      name: 'Payouts',
-      path: '/payouts',
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-      )
-    },
-    {
-      name: 'Settings',
-      path: '/settings',
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      )
-    }
+    { name: 'Dashboard', path: '/dashboard', icon: DashboardIcon },
+    { name: 'Activity', path: '/activity', icon: ActivityIcon },
+    { name: 'Library', path: '/library', icon: LibraryIcon },
+    { name: 'Security', path: '/security', icon: SecurityIcon },
+    { name: 'Schedules', path: '/schedules', icon: ScheduleIcon },
+    { name: 'Payouts', path: '/payouts', icon: PayoutIcon },
+    { name: 'Settings', path: '/settings', icon: SettingsIcon }
   ];
 
   return (
-    <div className="w-[290px] bg-white h-screen fixed left-0 top-0 flex flex-col">
+    <aside
+      className={`
+        ${mobile ? "w-full max-w-[290px]" : "w-[260px] xl:w-[290px] 2xl:w-[320px]"}
+        flex flex-col h-full bg-white
+      `}
+    >
       {/* Logo */}
-      <div className="h-20 flex items-center px-6">
-        <div className="flex items-center space-x-3">
-            <img
-                  src="/avatars/Logofull.png"
-                  alt="Logofull"
-                  className="w-full h-full object-cover"
-                />
-        </div>
+      <div className="h-20 flex items-center px-6 border-b">
+        <img
+          src="/avatars/Logofull.png"
+          alt="Logo"
+          className="h-10 w-auto object-contain"
+        />
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-4 pt-4">
-        {menuItems.map((item) => {
-          const isActive = pathname === item.path || pathname.startsWith(item.path + '/');
+      <nav className="flex-1 px-4 pt-4 overflow-y-auto">
+        {menuItems.map(({ name, path, icon: Icon }) => {
+          const isActive =
+            pathname === path || pathname.startsWith(path + '/');
+
           return (
             <Link
-              key={item.path}
-              href={item.path}
-              className={`flex items-center space-x-3 px-4 py-3 rounded-xl mb-2 transition-all ${
-                isActive
+              key={path}
+              href={path}
+              className={`
+                flex items-center gap-3 px-4 py-3 mb-2 rounded-xl
+                text-sm font-medium transition-all
+                ${isActive
                   ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200'
-                  : 'text-gray-500 hover:bg-gray-50'
-              }`}
+                  : 'text-gray-500 hover:bg-gray-50'}
+              `}
             >
-              {item.icon}
-              <span className="font-medium text-sm">{item.name}</span>
+              <Icon />
+              {name}
             </Link>
           );
         })}
       </nav>
 
-      {/* Log Out */}
-      <div className="p-4 border-t border-gray-100">
-        <button className="flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-500 hover:bg-gray-50 w-full transition-colors">
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-          </svg>
-          <span className="font-medium text-sm">Log Out</span>
+      {/* Logout */}
+      <div className="p-4 border-t">
+        <button className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-500 hover:bg-gray-50 w-full">
+          <LogoutIcon />
+          Log Out
         </button>
       </div>
-    </div>
+    </aside>
   );
 }
+
+/* ---------------- Icons ---------------- */
+function Icon({ d }) {
+  return (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={d} />
+    </svg>
+  );
+}
+
+function DashboardIcon() { return <Icon d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />; }
+function ActivityIcon() { return <Icon d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />; }
+function LibraryIcon() { return <Icon d="M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />; }
+function SecurityIcon() { return <Icon d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622z" />; }
+function ScheduleIcon() { return <Icon d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />; }
+function PayoutIcon() { return <Icon d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z" />; }
+function SettingsIcon() { return <Icon d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0" />; }
+function LogoutIcon() { return <Icon d="M17 16l4-4m0 0l-4-4m4 4H7" />; }
