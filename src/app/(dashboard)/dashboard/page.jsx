@@ -1,4 +1,3 @@
-// src/app/(dashboard)/dashboard/page.jsx
 "use client";
 
 import BarChart from '@/components/charts/BarChart';
@@ -47,14 +46,20 @@ export default function DashboardPage() {
     },
     scales: {
       y: {
-        display: true,
-        grid: {
-          display: true,
-          color: 'rgba(0, 0, 0, 0.05)',
-          drawBorder: false,
-        },
+        min: 0,
+        max: 800,
         ticks: {
-          callback: (value) => '$' + value,
+          display: false,
+        },
+        grid: {
+          drawBorder: false,
+          color: (ctx) => {
+            // Only draw the top guide line
+            return ctx.tick.value === 800
+              ? 'rgba(99, 102, 241, 0.3)'
+              : 'transparent';
+          },
+          borderDash: [4, 4], // dotted like Figma
         },
       },
       x: {
@@ -65,35 +70,33 @@ export default function DashboardPage() {
     },
   };
 
+
   // Line Chart Data (Bottom Left Card)
   const lineChartData = {
     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     datasets: [
       {
         data: [400, 450, 380, 500, 420, 480, 520],
-        fill: true,
-        backgroundColor: 'rgba(99, 102, 241, 0.1)',
+        fill: false,
         borderColor: 'rgba(99, 102, 241, 1)',
-        borderWidth: 3,
-        tension: 0.4,
+        borderWidth: 2,
+        tension: 0, // 🔴 THIS is the key
         pointRadius: 0,
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: 'rgba(99, 102, 241, 1)',
-      },
+      }
     ],
   };
 
   return (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       {/* Top Header with Search */}
-    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6 lg:mb-8 px-4 sm:px-6 lg:px-8 w-full max-w-full mx-auto pt-4">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6 lg:mb-8 px-4 sm:px-6 lg:px-8 w-full max-w-full mx-auto pt-4">
         <div>
           <p className="text-sm text-gray-500 mb-1">Hi Andrei,</p>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800">Welcome to Venus!</h1>
         </div>
 
         {/* Search Bar */}
-      <div className="hidden md:block relative w-full max-w-lg">
+        <div className="hidden md:block relative w-full max-w-lg">
           <svg
             className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2"
             fill="none"
@@ -118,11 +121,11 @@ export default function DashboardPage() {
         </div>
       </div>
 
-     <div className="px-4 sm:px-6 lg:px-8 w-full max-w-full mx-auto">
+      <div className="px-4 sm:px-6 lg:px-8 w-full max-w-full mx-auto">
         {/* ROW 1: Top Stats - 4 Cards */}
-       <div className="grid gap-4 md:gap-6 mb-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-4 md:gap-6 mb-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {/* Card 1 - This month earnings with mini bar chart */}
-        <div className="bg-white rounded-[20px] p-5 border border-gray-100 flex flex-col h-auto min-h-fit">
+          <div className="bg-white rounded-[20px] p-5 border border-gray-100 flex flex-col h-auto min-h-fit">
 
             <p className="text-xs text-gray-500 mb-2">This month earnings</p>
             <div className="flex justify-between items-end mt-auto">
@@ -146,7 +149,11 @@ export default function DashboardPage() {
               </div>
 
               <div className="ml-auto sm:ml-0 self-end sm:self-center">
-                <CurveChart color="rgba(99, 102, 241, 0.3)" values={[10, 20, 15, 25, 20, 30, 25]} />
+                <CurveChart
+                  color="rgba(99, 102, 241, 0.3)"
+                  values={[1, 1, 2, 15, 23, 15, 15]}
+                  variant="soft"
+                />
               </div>
             </div>
           </div>
@@ -174,7 +181,11 @@ export default function DashboardPage() {
                 <h2 className="text-2xl lg:text-3xl font-bold text-white">$540.50</h2>
               </div>
               <div className="self-end sm:self-center">
-                <CurveChart color="rgba(255, 255, 255, 0.3)" values={[15, 25, 20, 30, 25, 35, 30]} />
+                <CurveChart
+                  color="rgba(255, 255, 255, 0.3)"
+                  values={[1, 21, 7, 20, 21,]}
+                  variant="soft"
+                />
               </div>
             </div>
           </div>
@@ -306,17 +317,17 @@ export default function DashboardPage() {
 
             <button className="w-full mt-6 text-purple-600 font-medium text-sm hover:text-purple-700 flex items-center justify-end gap-2 transition group">
               <span>View all Tasks</span>
-              <svg 
-                className="w-4 h-4 group-hover:translate-x-1 transition-transform" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M9 5l7 7-7 7" 
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
                 />
               </svg>
             </button>

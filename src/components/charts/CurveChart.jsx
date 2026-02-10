@@ -18,19 +18,25 @@ ChartJS.register(
   Filler
 );
 
-export default function CurveChart({ color = 'rgba(255, 255, 255, 0.5)', values = [10, 20, 15, 25, 20, 30, 25] }) {
+export default function CurveChart({
+  color,
+  values,
+  variant = "soft", // soft | sharp | thin
+}) {
+  const isSharp = variant === "sharp";
+  const isThin = variant === "thin";
+
   const data = {
     labels: ['', '', '', '', '', '', ''],
     datasets: [
       {
         data: values,
-        fill: true,
-        backgroundColor: color,
-        borderColor: color.replace('0.5', '0.8'),
-        borderWidth: 2,
-        tension: 0.4,
+        fill: false,
+        backgroundColor: 'transparent',
+        borderColor: color.replace('0.3', '1').replace('0.5', '1'),
+        borderWidth: isThin ? 1.5 : 2,
+        tension: isSharp ? 0 : 0.4,
         pointRadius: 0,
-        pointHoverRadius: 0,
       },
     ],
   };
@@ -46,10 +52,12 @@ export default function CurveChart({ color = 'rgba(255, 255, 255, 0.5)', values 
       x: {
         display: false,
         grid: { display: false },
+        border: { display: false },
       },
       y: {
         display: false,
         grid: { display: false },
+        border: { display: false },
       },
     },
   };

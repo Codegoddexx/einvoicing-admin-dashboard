@@ -1,30 +1,28 @@
 "use client";
 
-import { Bar } from 'react-chartjs-2';
+import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
   BarElement,
-} from 'chart.js';
+} from "chart.js";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement);
 
-export default function MiniBarChart({ values = [20, 40, 30, 35, 45] }) {
+export default function MiniBarChart({ values }) {
   const data = {
-    labels: ['', '', '', '', ''],
+    labels: values.map(() => ""),
     datasets: [
       {
         data: values,
-        backgroundColor: [
-          'rgba(99, 102, 241, 0.3)',
-          'rgba(99, 102, 241, 0.4)',
-          'rgba(99, 102, 241, 0.5)',
-          'rgba(99, 102, 241, 0.6)',
-          'rgba(99, 102, 241, 0.8)',
-        ],
-        borderRadius: 4,
-        barThickness: 8,
+        backgroundColor: "rgba(99, 102, 241, 1)",
+
+        // 🔴 THESE GO HERE — DATASET LEVEL
+        barThickness: 6,
+        borderRadius: 3,
+        categoryPercentage: 1.0,
+        barPercentage: 0.9,
       },
     ],
   };
@@ -40,16 +38,18 @@ export default function MiniBarChart({ values = [20, 40, 30, 35, 45] }) {
       x: {
         display: false,
         grid: { display: false },
+        border: { display: false },
       },
       y: {
         display: false,
         grid: { display: false },
+        border: { display: false },
       },
     },
   };
 
   return (
-    <div className="h-[48px] w-[60px]">
+    <div className="h-[32px] w-[80px]">
       <Bar data={data} options={options} />
     </div>
   );
