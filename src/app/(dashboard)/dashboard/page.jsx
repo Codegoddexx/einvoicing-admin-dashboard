@@ -130,41 +130,77 @@ export default function DashboardPage() {
             <p className="text-xs text-gray-500 mb-2">This month earnings</p>
             <div className="flex justify-between items-end mt-auto">
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-800">$682.5</h2>
-              <MiniBarChart values={[30, 45, 35, 40, 50]} />
-            </div>
-          </div>
-
-          {/* Card 2 - New Clients */}
-          <div className="bg-white rounded-[20px] px-5 py-3 border border-gray-100 min-h-[97px]">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 h-full">
-              <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              </div>
-
-              <div className="flex-1 min-w-0">
-                <p className="text-xs text-gray-500 mb-1">New clients</p>
-                <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 leading-tight">321</h2>
-              </div>
-
-              <div className="ml-auto sm:ml-0 self-end sm:self-center">
-                <CurveChart
-                  color="rgba(99, 102, 241, 0.3)"
-                  values={[1, 1, 2, 15, 23, 15, 15]}
-                  variant="soft"
+              <div className="flex items-end space-x-0.5 h-10 pb-2">
+                <img
+                  src="/avatars/Barthree.png"
+                  alt="Bar"
+                  className="h-[48.33px] w-[10.57]"
+                />
+                <img
+                  src="/avatars/Barfour.png"
+                  alt="Bar"
+                  className="h-[48.33px] w-[10.57]"
+                />
+                <img
+                  src="/avatars/Barfive.png"
+                  alt="Bar"
+                  className="h-[48.33px] w-[10.57]"
+                />
+                <img
+                  src="/avatars/Barsix.png"
+                  alt="Bar"
+                  className="h-[48.33px] w-[10.57]"
+                />
+                <img
+                  src="/avatars/Barseven.png"
+                  alt="Bar"
+                  className="h-[48.33px] w-[10.57]"
                 />
               </div>
             </div>
           </div>
 
+          {/* Card 2 - New Clients */}
+          <div className="bg-white rounded-[20px] px-5 py-3 border border-gray-100 min-h-[97px] flex items-center gap-3">
+            {/* Icon Circle */}
+            <div className="relative w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+              <img
+                src="/Icondummy.png"
+                alt="Icon"
+                className="w-5 h-5 object-contain"
+              />
+            </div>
+
+            {/* Text */}
+            <div className="flex flex-col justify-center min-w-0">
+              <p className="text-xs whitespace-nowrap mb-1">
+                New clients
+              </p>
+              <h2 className="text-2xl leading-tight">
+                321
+              </h2>
+            </div>
+
+            {/* Curve */}
+            <div className="w-[90px] h-[48px] flex-shrink-0 ml-auto">
+              <img
+                src="/avatars/Curvegraph.png"
+                alt="Graph"
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+
+
           {/* Card 3 - Earnings */}
           <div className="bg-white rounded-[20px] p-5 border border-gray-100 min-h-[97px]">
             <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center h-full">
               <div className="w-10 h-10 bg-indigo-50 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                <img
+                  src="/avatars/Icon3.png"
+                  alt="Graph"
+                  className="w-6 h-6 object-contain"
+                />
               </div>
               <div className="flex-1">
                 <p className="text-xs text-gray-500 mb-1">Earnings</p>
@@ -199,9 +235,13 @@ export default function DashboardPage() {
               <p className="text-xs text-gray-500 mb-2">This month earnings</p>
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-2">
                 <h2 className="text-2xl lg:text-3xl font-bold text-gray-800">$682.5</h2>
-                <button className="px-4 py-2 bg-gray-100 text-gray-600 text-xs font-medium rounded-lg hover:bg-gray-200 transition self-start">
-                  View Report
-                </button>
+                <div className='bg-indigo-50'>
+                  <img
+                    src="/avatars/ChartButton.png"
+                    alt="Graph illustration"
+                    className="w-auto h-8 object-contain"
+                  />
+                </div>
               </div>
               <p className="text-xs text-green-500 flex items-center gap-1">
                 <span className="w-2 h-2 bg-green-500 rounded-full"></span>
@@ -258,8 +298,12 @@ export default function DashboardPage() {
               </p>
             </div>
 
-            <div className="flex-1 mt-4 min-h-[200px]">
-              <LineChart data={lineChartData} height={200} />
+            <div className="flex-1 relative">
+              <img
+                src="/avatars/SecondChart.png"
+                alt="Chart"
+                className="absolute top-10 left-0 w-full object-contain"
+              />
             </div>
           </div>
 
