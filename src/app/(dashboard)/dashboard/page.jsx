@@ -9,13 +9,6 @@ import { redirect } from "next/navigation";
 
 export default function DashboardPage() {
 
-  const { data: session, status } = useSession();
-
-  if (status === "loading") return null;
-
-  if (!session) {
-    redirect("/auth/login");
-  }
     // Data
     const transfers = [
       { id: 1, name: "Public Transport", date: "22 September 2020", positive: true, avatar: "/avatars/directions_bus.png" },
