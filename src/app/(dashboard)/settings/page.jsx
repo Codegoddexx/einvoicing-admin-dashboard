@@ -1,193 +1,169 @@
+// src/app/(dashboard)/settings/page.jsx
 'use client';
 
 import { useState } from 'react';
 
 export default function SettingsPage() {
-  const [notifications, setNotifications] = useState({
-    emailNotifications: true,
-    invoiceAlerts: true,
-    paymentUpdates: false,
-    weeklyReports: true
-  });
+  const [activeTab, setActiveTab] = useState('profile');
 
-  const handleToggle = (setting) => {
-    setNotifications({
-      ...notifications,
-      [setting]: !notifications[setting]
-    });
-  };
+  const tabs = [
+    { id: 'profile', name: 'Profile', icon: '👤' },
+    { id: 'business', name: 'Business', icon: '🏢' },
+    { id: 'notifications', name: 'Notifications', icon: '🔔' },
+    { id: 'billing', name: 'Billing', icon: '💳' },
+  ];
 
   return (
-    <div>
-      {/* Page Header */}
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-800 mb-2">Settings</h1>
-        <p className="text-gray-600">Manage your account and application preferences</p>
+    <div className="min-h-screen bg-gray-50">
+      <div className="mb-8 px-4 sm:px-6 lg:px-8 pt-6">
+        <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-2">Settings</h1>
+        <p className="text-gray-600">Manage your account and preferences</p>
       </div>
 
-      {/* Profile Settings */}
-      <div className="bg-white rounded-lg border border-gray-200 p-6 mb-6">
-        <h2 className="text-lg font-semibold text-gray-800 mb-6">Profile Settings</h2>
-        
-        <div className="space-y-6">
-          <div className="flex items-start space-x-4">
-            <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center">
-              <span className="text-gray-600 font-medium text-2xl">PA</span>
-            </div>
-            <div className="flex-1">
-              <h3 className="font-medium text-gray-800">Precious Adachi</h3>
-              <p className="text-sm text-gray-600">Administrator</p>
-              <button className="mt-2 text-sm text-indigo-600 hover:text-indigo-700 font-medium">
-                Change Photo
-              </button>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-              <input
-                type="text"
-                defaultValue="Precious Adachi"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-              <input
-                type="email"
-                defaultValue="Precious.Iwuala@heirstechnologies.com"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
-              <input
-                type="tel"
-                defaultValue="+234 800 000 0000"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Department</label>
-              <input
-                type="text"
-                defaultValue="Administration"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
-              />
+      <div className="px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          <div className="lg:col-span-1">
+            <div className="bg-white rounded-2xl border border-gray-100 p-3">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all ${
+                    activeTab === tab.id
+                      ? 'bg-indigo-600 text-white shadow-lg'
+                      : 'text-gray-600 hover:bg-gray-50'
+                  }`}
+                >
+                  <span className="text-xl">{tab.icon}</span>
+                  <span className="font-medium">{tab.name}</span>
+                </button>
+              ))}
             </div>
           </div>
 
-          <div className="pt-4">
-            <button className="px-6 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors">
-              Save Changes
-            </button>
-          </div>
-        </div>
-      </div>
+          <div className="lg:col-span-3">
+            {activeTab === 'profile' && (
+              <div className="bg-white rounded-2xl border border-gray-100 p-6 lg:p-8">
+                <h2 className="text-xl font-bold text-gray-800 mb-6">Profile Information</h2>
+                <div className="space-y-5">
+                  <div className="flex items-center gap-6">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-white text-2xl font-bold">
+                      A
+                    </div>
+                    <div>
+                      <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors">
+                        Change Photo
+                      </button>
+                      <p className="text-xs text-gray-500 mt-2">JPG, PNG or GIF. Max 2MB</p>
+                    </div>
+                  </div>
 
-      {/* Notification Settings */}
-      <div className="bg-white rounded-lg border border-gray-200 p-6 mb-6">
-        <h2 className="text-lg font-semibold text-gray-800 mb-6">Notification Preferences</h2>
-        
-        <div className="space-y-4">
-          <div className="flex items-center justify-between py-3 border-b border-gray-100">
-            <div>
-              <h3 className="font-medium text-gray-800">Email Notifications</h3>
-              <p className="text-sm text-gray-600">Receive email updates about system activities</p>
-            </div>
-            <button
-              onClick={() => handleToggle('emailNotifications')}
-              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                notifications.emailNotifications ? 'bg-indigo-600' : 'bg-gray-300'
-              }`}
-            >
-              <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                  notifications.emailNotifications ? 'translate-x-6' : 'translate-x-1'
-                }`}
-              />
-            </button>
-          </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                      <input
+                        type="text"
+                        defaultValue="Andrei"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-gray-900"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                      <input
+                        type="text"
+                        defaultValue="User"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-gray-900"
+                      />
+                    </div>
+                  </div>
 
-          <div className="flex items-center justify-between py-3 border-b border-gray-100">
-            <div>
-              <h3 className="font-medium text-gray-800">Invoice Alerts</h3>
-              <p className="text-sm text-gray-600">Get notified when invoices are generated</p>
-            </div>
-            <button
-              onClick={() => handleToggle('invoiceAlerts')}
-              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                notifications.invoiceAlerts ? 'bg-indigo-600' : 'bg-gray-300'
-              }`}
-            >
-              <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                  notifications.invoiceAlerts ? 'translate-x-6' : 'translate-x-1'
-                }`}
-              />
-            </button>
-          </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                    <input
+                      type="email"
+                      defaultValue="admin@heirs.com"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-gray-900"
+                    />
+                  </div>
 
-          <div className="flex items-center justify-between py-3 border-b border-gray-100">
-            <div>
-              <h3 className="font-medium text-gray-800">Payment Updates</h3>
-              <p className="text-sm text-gray-600">Receive notifications for payment transactions</p>
-            </div>
-            <button
-              onClick={() => handleToggle('paymentUpdates')}
-              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                notifications.paymentUpdates ? 'bg-indigo-600' : 'bg-gray-300'
-              }`}
-            >
-              <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                  notifications.paymentUpdates ? 'translate-x-6' : 'translate-x-1'
-                }`}
-              />
-            </button>
-          </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                    <input
+                      type="tel"
+                      placeholder="+234 123 456 7890"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-gray-900"
+                    />
+                  </div>
 
-          <div className="flex items-center justify-between py-3">
-            <div>
-              <h3 className="font-medium text-gray-800">Weekly Reports</h3>
-              <p className="text-sm text-gray-600">Get weekly summary of system activities</p>
-            </div>
-            <button
-              onClick={() => handleToggle('weeklyReports')}
-              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                notifications.weeklyReports ? 'bg-indigo-600' : 'bg-gray-300'
-              }`}
-            >
-              <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                  notifications.weeklyReports ? 'translate-x-6' : 'translate-x-1'
-                }`}
-              />
-            </button>
-          </div>
-        </div>
-      </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Bio</label>
+                    <textarea
+                      rows="4"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-gray-900"
+                      placeholder="Tell us about yourself..."
+                    />
+                  </div>
 
-      {/* Security Settings */}
-      <div className="bg-white rounded-lg border border-gray-200 p-6">
-        <h2 className="text-lg font-semibold text-gray-800 mb-6">Security Settings</h2>
-        
-        <div className="space-y-4">
-          <div>
-            <h3 className="font-medium text-gray-800 mb-2">Change Password</h3>
-            <p className="text-sm text-gray-600 mb-4">Update your password regularly for security</p>
-            <button className="px-6 py-2 border border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-gray-50 transition-colors">
-              Change Password
-            </button>
-          </div>
+                  <div className="flex gap-3 pt-4">
+                    <button className="px-6 py-3 bg-indigo-600 text-white rounded-xl font-medium hover:bg-indigo-700 transition-colors shadow-lg hover:shadow-xl">
+                      Save Changes
+                    </button>
+                    <button className="px-6 py-3 border border-gray-300 text-gray-700 rounded-xl font-medium hover:bg-gray-50 transition-colors">
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
 
-          <div className="pt-4 border-t border-gray-100">
-            <h3 className="font-medium text-gray-800 mb-2">Two-Factor Authentication</h3>
-            <p className="text-sm text-gray-600 mb-4">Add an extra layer of security to your account</p>
-            <button className="px-6 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors">
-              Enable 2FA
-            </button>
+            {activeTab === 'business' && (
+              <div className="bg-white rounded-2xl border border-gray-100 p-6 lg:p-8">
+                <h2 className="text-xl font-bold text-gray-800 mb-6">Business Information</h2>
+                <div className="space-y-5">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
+                    <input
+                      type="text"
+                      defaultValue="Heirs Technologies"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none transition text-gray-900"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Tax ID</label>
+                    <input
+                      type="text"
+                      placeholder="123-45-6789"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none transition text-gray-900"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Business Address</label>
+                    <textarea
+                      rows="3"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none transition text-gray-900"
+                      placeholder="Enter your business address"
+                    />
+                  </div>
+                  <button className="px-6 py-3 bg-indigo-600 text-white rounded-xl font-medium hover:bg-indigo-700 transition-colors shadow-lg">
+                    Save Changes
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'notifications' && (
+              <div className="bg-white rounded-2xl border border-gray-100 p-6 lg:p-8">
+                <h2 className="text-xl font-bold text-gray-800 mb-6">Notification Preferences</h2>
+                <p className="text-gray-500">Manage how you receive notifications</p>
+              </div>
+            )}
+
+            {activeTab === 'billing' && (
+              <div className="bg-white rounded-2xl border border-gray-100 p-6 lg:p-8">
+                <h2 className="text-xl font-bold text-gray-800 mb-6">Billing & Subscription</h2>
+                <p className="text-gray-500">Manage your subscription and payment methods</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
