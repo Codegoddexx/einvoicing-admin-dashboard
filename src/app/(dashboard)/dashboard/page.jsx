@@ -249,9 +249,8 @@ export default function DashboardPage() {
         {/* ROW 1: Top Stats - 4 Cards */}
         <div className="grid gap-4 md:gap-6 mb-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {/* Card 1 - This month earnings with mini bar chart */}
-          {/* Card 1 - This month earnings with mini bar chart */}
           <div className="bg-white rounded-[20px] p-5 border border-gray-100 flex flex-col h-auto min-h-fit">
-            <p className="text-xs text-gray-500 mb-2">This month earnings</p>
+            <p className="text-xs text-gray-500">This month earnings</p>
             <div className="flex justify-between items-end gap-4 mt-auto">
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 flex-shrink-0">$682.5</h2>
               {/* Chart container with fixed width */}
