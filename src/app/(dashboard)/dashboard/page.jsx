@@ -39,61 +39,126 @@ export default function DashboardPage() {
     ],
   };
 
-const weeklyEarningsData = {
-  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-  datasets: [
-    {
-      stack: 'combined',   // ✅ ADD
-      data: [500, 500, 500, 500, 500, 500, 500],
-      backgroundColor: 'rgba(209, 213, 219, 0.3)',
-      borderRadius: {
-        topLeft: 8,
-        topRight: 8,
+  const weeklyEarningsData = {
+    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    datasets: [
+      {
+        stack: 'combined',   // ✅ ADD
+        data: [500, 500, 500, 500, 500, 500, 500],
+        backgroundColor: 'rgba(209, 213, 219, 0.3)',
+        borderRadius: {
+          topLeft: 8,
+          topRight: 8,
+        },
+      },
+      {
+        stack: 'combined',   // ✅ ADD
+        data: [250, 180, 380, 220, 320, 420, 180],
+        backgroundColor: 'rgba(99, 102, 241, 1)',
+        borderRadius: {
+          topLeft: 8,
+          topRight: 8,
+        },
+      },
+    ],
+  };
+
+
+  const weeklyEarningsOptions = {
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        enabled: true,
+        filter: (tooltipItem) => tooltipItem.datasetIndex === 1,
+        callbacks: {
+          label: (context) => '$' + context.parsed.y,
+        },
       },
     },
-    {
-      stack: 'combined',   // ✅ ADD
-      data: [250, 180, 380, 220, 320, 420, 180],
-      backgroundColor: 'rgba(99, 102, 241, 1)',
-      borderRadius: {
-        topLeft: 8,
-        topRight: 8,
+    scales: {
+      x: {
+        stacked: false,     // ✅ ADD THIS
+        grid: { display: false },
+        border: { display: false },
+      },
+      y: {
+        stacked: false,     // ✅ ADD THIS
+        min: 0,
+        max: 500,
+        display: false,
+        grid: { display: false },
       },
     },
-  ],
-};
+  };
+
+  const miniChartData = {
+    labels: ['', '', '', '', ''],
+    datasets: [
+      {
+        stack: 'combined',
+        data: [120, 120, 120, 120, 120],
+        backgroundColor: 'rgba(209, 213, 219, 0.3)',
+        borderRadius: {
+          topLeft: 8,
+          topRight: 8,
+          bottomLeft: 0, 
+        bottomRight: 0,
+        },
+        barThickness: 8,
+        maxBarThickness: 8,
+
+      },
+      {
+        stack: 'combined',
+        data: [80, 45, 65, 95, 30],
+        backgroundColor: 'rgba(79, 70, 229, 1)',
+        borderRadius: {
+          topLeft: 8,
+          topRight: 8,
+        },
+        barThickness: 8,
+        maxBarThickness: 8,
+
+      },
+    ],
+  };
 
 
-const weeklyEarningsOptions = {
-  plugins: {
-    legend: { display: false },
-    tooltip: {
-      enabled: true,
-      filter: (tooltipItem) => tooltipItem.datasetIndex === 1,
-      callbacks: {
-        label: (context) => '$' + context.parsed.y,
+
+  const miniChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        enabled: true,
+        filter: (tooltipItem) => tooltipItem.datasetIndex === 1,
+        callbacks: {
+          label: (context) => '$' + context.parsed.y,
+        },
       },
     },
-  },
-  scales: {
-    x: {
-      stacked: false,     // ✅ ADD THIS
-      grid: { display: false },
-      border: { display: false },
+    scales: {
+      x: {
+        stacked: false,
+        display: false,
+        grid: { display: false },
+        border: { display: false },
+      },
+      y: {
+        stacked: false,
+        min: 0,
+        max: 100,   // must match grey value
+        display: false,
+        grid: { display: false },
+        border: { display: false },
+      },
     },
-    y: {
-      stacked: false,     // ✅ ADD THIS
-      min: 0,
-      max: 500,
-      display: false,
-      grid: { display: false },
-    },
-  },
-};
+  };
 
 
 
- const monthlyEarningsOptions = {
+  const monthlyEarningsOptions = {
     plugins: {
       tooltip: {
         callbacks: {
@@ -184,43 +249,24 @@ const weeklyEarningsOptions = {
         {/* ROW 1: Top Stats - 4 Cards */}
         <div className="grid gap-4 md:gap-6 mb-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {/* Card 1 - This month earnings with mini bar chart */}
+          {/* Card 1 - This month earnings with mini bar chart */}
           <div className="bg-white rounded-[20px] p-5 border border-gray-100 flex flex-col h-auto min-h-fit">
-
             <p className="text-xs text-gray-500 mb-2">This month earnings</p>
-            <div className="flex justify-between items-end mt-auto">
-              <h2 className="text-2xl lg:text-3xl font-bold text-gray-800">$682.5</h2>
-              <div className="flex items-end space-x-0.5 h-10 pb-2">
-                <img
-                  src="/avatars/Barthree.png"
-                  alt="Bar"
-                  className="h-[48.33px] w-[10.57]"
-                />
-                <img
-                  src="/avatars/Barfour.png"
-                  alt="Bar"
-                  className="h-[48.33px] w-[10.57]"
-                />
-                <img
-                  src="/avatars/Barfive.png"
-                  alt="Bar"
-                  className="h-[48.33px] w-[10.57]"
-                />
-                <img
-                  src="/avatars/Barsix.png"
-                  alt="Bar"
-                  className="h-[48.33px] w-[10.57]"
-                />
-                <img
-                  src="/avatars/Barseven.png"
-                  alt="Bar"
-                  className="h-[48.33px] w-[10.57]"
+            <div className="flex justify-between items-end gap-4 mt-auto">
+              <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 flex-shrink-0">$682.5</h2>
+              {/* Chart container with fixed width */}
+              <div className="w-[100px] h-[50px] flex-shrink-0">
+                <BarChart
+                  data={miniChartData}
+                  options={miniChartOptions}
+                  height={50}
                 />
               </div>
             </div>
           </div>
 
           {/* Card 2 - New Clients */}
-          <div className="bg-white rounded-[20px] px-5 py-3 border border-gray-100 min-h-[97px] flex items-center gap-3">
+          <div className="bg-white rounded-[20px] px-5 py-3 border border-gray-100 min-h-[97px] flex items-center justify-between gap-2">
             {/* Icon Circle */}
             <div className="relative w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
               <img
@@ -231,7 +277,7 @@ const weeklyEarningsOptions = {
             </div>
 
             {/* Text */}
-            <div className="flex flex-col justify-center min-w-0">
+            <div className="flex flex-col justify-center min-w-0 flex-1">
               <p className="text-xs whitespace-nowrap mb-1">
                 New clients
               </p>
@@ -241,15 +287,16 @@ const weeklyEarningsOptions = {
             </div>
 
             {/* Curve */}
-            <div className="w-[90px] h-[48px] flex-shrink-0 ml-auto">
-              <img
-                src="/avatars/Curvegraph.png"
-                alt="Graph"
-                className="w-full h-full object-contain"
+            <div className="w-[90px] h-[48px] flex-shrink-0">
+              <CurveChart
+                useGradient={true}
+                gradientStart="rgba(99, 102, 241, 1)"
+                gradientEnd="rgba(209, 213, 219, 0.5)"
+                values={[12.5, 12, 25, 20, 22]}
+                variant="soft"
               />
             </div>
           </div>
-
 
           {/* Card 3 - Earnings */}
           <div className="bg-white rounded-[20px] p-5 border border-gray-100 min-h-[97px]">
@@ -277,8 +324,10 @@ const weeklyEarningsOptions = {
               </div>
               <div className="self-end sm:self-center">
                 <CurveChart
-                  color="rgba(255, 255, 255, 0.3)"
-                  values={[1, 21, 7, 20, 21,]}
+                  useGradient={true}
+                  gradientStart="rgba(255, 255, 255, 1)"
+                  gradientEnd="rgba(255, 255, 255, 0.2)"
+                  values={[1, 21, 7, 20, 21]}
                   variant="soft"
                 />
               </div>
