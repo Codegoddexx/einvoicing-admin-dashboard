@@ -43,25 +43,33 @@ const weeklyEarningsData = {
   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
   datasets: [
     {
+      stack: 'combined',   // ✅ ADD
+      data: [500, 500, 500, 500, 500, 500, 500],
+      backgroundColor: 'rgba(209, 213, 219, 0.3)',
+      borderRadius: {
+        topLeft: 8,
+        topRight: 8,
+      },
+    },
+    {
+      stack: 'combined',   // ✅ ADD
       data: [250, 180, 380, 220, 320, 420, 180],
       backgroundColor: 'rgba(99, 102, 241, 1)',
       borderRadius: {
         topLeft: 8,
         topRight: 8,
       },
-      barThickness: 16,
     },
   ],
 };
+
 
 const weeklyEarningsOptions = {
   plugins: {
     legend: { display: false },
     tooltip: {
       enabled: true,
-      backgroundColor: 'rgba(0, 0, 0, 0.8)',
-      padding: 12,
-      cornerRadius: 8,
+      filter: (tooltipItem) => tooltipItem.datasetIndex === 1,
       callbacks: {
         label: (context) => '$' + context.parsed.y,
       },
@@ -69,12 +77,14 @@ const weeklyEarningsOptions = {
   },
   scales: {
     x: {
+      stacked: false,     // ✅ ADD THIS
       grid: { display: false },
       border: { display: false },
     },
     y: {
+      stacked: false,     // ✅ ADD THIS
       min: 0,
-      max: 500, // This creates the "glass container" effect
+      max: 500,
       display: false,
       grid: { display: false },
     },
@@ -82,7 +92,8 @@ const weeklyEarningsOptions = {
 };
 
 
-  const monthlyEarningsOptions = {
+
+ const monthlyEarningsOptions = {
     plugins: {
       tooltip: {
         callbacks: {
